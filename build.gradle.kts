@@ -19,8 +19,10 @@ application {
 }
 
 repositories {
-    mavenCentral()
     maven { url = uri("https://maven.pkg.jetbrains.space/public/p/ktor/eap") }
+    mavenLocal()
+    mavenCentral()
+    google()
 }
 
 dependencies {
@@ -40,6 +42,10 @@ dependencies {
 
     // Koin for Ktor
     implementation ("io.insert-koin:koin-ktor:$koinVersion")
+    api ("io.insert-koin:koin-core:$koinVersion")
+    testImplementation ("io.insert-koin:koin-test-junit4:$koinVersion")
+
     // SLF4J Logger
+    implementation ("io.insert-koin:koin-logger-slf4j:$koinVersion")
     implementation ("io.insert-koin:koin-logger-slf4j:$koinVersion")
 }
