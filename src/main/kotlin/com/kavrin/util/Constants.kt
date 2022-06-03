@@ -9,6 +9,7 @@ object Constants {
     const val SUCCESS_MESSAGE_OK = "OK"
     const val FAIL_MESSAGE_NUMBER = "Only Numbers Allowed."
     const val FAIL_MESSAGE_NOT_FOUND = "Heroes not Found."
+    const val STATUS_PAGES_NOT_FOUND = "Page not Found."
 
 
 
