@@ -4,21 +4,26 @@ import com.kavrin.models.ApiResponse
 import com.kavrin.models.Hero
 import com.kavrin.util.Constants.NEXT_PAGE_KEY
 import com.kavrin.util.Constants.PREV_PAGE_KEY
+import com.kavrin.util.Constants.SUCCESS_MESSAGE_OK
 
 class HeroRepositoryImpl: HeroRepository {
 
     override suspend fun getAllHeroes(page: Int): ApiResponse {
         return ApiResponse(
             success = true,
-            message = "OK",
+            message = SUCCESS_MESSAGE_OK,
             prevPage = calcPage(page = page)[PREV_PAGE_KEY],
             nextPage = calcPage(page = page)[NEXT_PAGE_KEY],
             heroes = heroes[page]!!
         )
     }
 
-    override suspend fun searchHeroes(name: String): ApiResponse {
-        TODO("Not yet implemented")
+    override suspend fun searchHeroes(name: String?): ApiResponse {
+        return ApiResponse(
+            success = true,
+            message = SUCCESS_MESSAGE_OK,
+            heroes = findHeroes(query = name)
+        )
     }
 
     override val page1 = listOf(
@@ -421,5 +426,21 @@ class HeroRepositoryImpl: HeroRepository {
         if (page == 5) nextPage = null
         if (page == 1) prevPage = null
         return mapOf(PREV_PAGE_KEY to prevPage, NEXT_PAGE_KEY to nextPage)
+    }
+
+    private fun findHeroes(query: String?): List<Hero> {
+        val founded = mutableListOf<Hero>()
+        return if (!query.isNullOrEmpty()) {
+            heroes.forEach { (key, heroList) ->
+                heroList.forEach { hero ->
+                    if (hero.name.lowercase().contains(query.lowercase())) {
+                        founded.add(hero)
+                    }
+                }
+            }
+            founded
+        } else {
+            emptyList()
+        }
     }
 }

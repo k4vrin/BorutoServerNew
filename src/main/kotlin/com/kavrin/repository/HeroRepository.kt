@@ -7,7 +7,7 @@ interface HeroRepository {
 
     suspend fun getAllHeroes(page: Int): ApiResponse
 
-    suspend fun searchHeroes(name: String): ApiResponse
+    suspend fun searchHeroes(name: String?): ApiResponse
 
     val page1: List<Hero>
     val page2: List<Hero>

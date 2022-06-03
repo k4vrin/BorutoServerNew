@@ -2,6 +2,9 @@ package com.kavrin.routes
 
 import com.kavrin.models.ApiResponse
 import com.kavrin.repository.HeroRepository
+import com.kavrin.util.Constants.FAIL_MESSAGE_NOT_FOUND
+import com.kavrin.util.Constants.FAIL_MESSAGE_NUMBER
+import com.kavrin.util.Constants.PAGE_KEY
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.response.*
@@ -15,7 +18,7 @@ fun Route.getAllHeroes() {
 
     get(path = "/boruto/heroes") {
         try {
-            val page = call.request.queryParameters["page"]?.toInt() ?: 1
+            val page = call.request.queryParameters[PAGE_KEY]?.toInt() ?: 1
             require(value = page in 1..5)
 
             val apiResponse: ApiResponse = heroRepository.getAllHeroes(page = page)
@@ -29,7 +32,7 @@ fun Route.getAllHeroes() {
             call.respond(
                 message = ApiResponse(
                     success = false,
-                    message = "Only Numbers Allowed."
+                    message = FAIL_MESSAGE_NUMBER
                 ),
                 status = HttpStatusCode.BadRequest
             )
@@ -38,7 +41,7 @@ fun Route.getAllHeroes() {
             call.respond(
                 message = ApiResponse(
                     success = false,
-                    message = "Heroes not Found."
+                    message = FAIL_MESSAGE_NOT_FOUND
                 ),
                 status = HttpStatusCode.NotFound
             )
