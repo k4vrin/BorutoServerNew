@@ -1,13 +1,13 @@
 # Boruto API
 
-an API for Boruto anime heroes using _[Ktor](https://ktor.io/)_ and _[Koin](https://ktor.io/)_
+an API for Boruto anime heroes using _[Ktor](https://ktor.io/)_ and _[Koin](https://insert-koin.io/)_
 
-## 1.Plugins
+## Plugins
 Many applications require common functionality that is out of scope of the application logic. This could be things like serialization and content encoding, compression, headers, cookie support, etc. All of these are provided in Ktor by means of what we call Plugins.
 
 _[Plugins](https://ktor.io/docs/plugins.html)_ :
 
-- _[Routing](https://ktor.io/docs/plugins.html)_ : Routing is the core Ktor plugin for handling incoming requests in a server application. When the client makes a request to a specific URL (for example, /hello), the routing mechanism allows us to define how we want this request to be served.
+- _[Routing](https://ktor.io/docs/routing-in-ktor.html)_ : Routing is the core Ktor plugin for handling incoming requests in a server application. When the client makes a request to a specific URL (for example, /hello), the routing mechanism allows us to define how we want this request to be served.
 - _[Content negotiation and serialization](https://ktor.io/docs/serialization.html)_ : The ContentNegotiation plugin serves two primary purposes:
 
   - Negotiating media types between the client and server. For this, it uses the "Accept" and "Content-Type" headers.
@@ -18,7 +18,7 @@ _[Plugins](https://ktor.io/docs/plugins.html)_ :
 - _[Call logging](https://ktor.io/docs/call-logging.html)_ : Ktor provides the capability to log application events using the SLF4J library. The CallLogging plugin allows you to log incoming client requests.
 - _[Status pages](https://ktor.io/docs/status-pages.html)_ : The StatusPages plugin allows Ktor applications to respond appropriately to any failure state based on a thrown exception or status code.
 
-## 2.Dependency Injection
+## Dependency Injection
 
 _[What is dependency injection?](https://developer.android.com/training/dependency-injection)_
 
@@ -37,13 +37,13 @@ Koin is a pragmatic and lightweight dependency injection framework for Kotlin de
 
 `Koin is a DSL, a light container and a pragmatic API`
 
-_[Koin for Ktor](https://github.com/InsertKoinIO/koin-ktor)_
+_[Koin for Ktor](https://insert-koin.io/docs/reference/koin-ktor/ktor)_
 
 Additional Resources: 
 - _[Installing Koin plugin to Ktor (2.0.0-beta-1) is not working](https://github.com/InsertKoinIO/koin/issues/1295)_
 - _[Koin for Ktor GitHub](https://github.com/InsertKoinIO/koin-ktor)_
 
-## 3.Testing
+## Testing
 
 ### Ktor
 
