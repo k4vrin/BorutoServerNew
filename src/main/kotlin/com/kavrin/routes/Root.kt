@@ -7,8 +7,8 @@ import io.ktor.server.routing.*
 
 fun Route.root() {
     get(path = "/") {
-        call.respond(
-            message = "Welcome to Boruto API!",
+        call.respondText(
+            text = "Welcome to Boruto API!",
             status = HttpStatusCode.OK
         )
     }

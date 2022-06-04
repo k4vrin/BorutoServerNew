@@ -1,31 +1,23 @@
 package com.kavrin
 
-import io.ktor.server.routing.*
 import io.ktor.http.*
-import io.ktor.serialization.kotlinx.json.*
-import io.ktor.server.plugins.contentnegotiation.*
-import io.ktor.server.plugins.callloging.*
-import org.slf4j.event.*
-import io.ktor.server.request.*
-import io.ktor.server.plugins.defaultheaders.*
-import io.ktor.server.plugins.statuspages.*
-import io.ktor.server.application.*
-import io.ktor.server.response.*
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
-import kotlin.test.*
 import io.ktor.server.testing.*
-import com.kavrin.plugins.*
+import org.junit.Test
+import kotlin.test.*
 
 class ApplicationTest {
     @Test
     fun testRoot() = testApplication {
-        application {
-            configureRouting()
-        }
+        // Added automatically
+//        application {
+//            configureRouting()
+//            module()
+//        }
         client.get("/").apply {
             assertEquals(HttpStatusCode.OK, status)
-            assertEquals("Hello World!", bodyAsText())
+            assertEquals("Welcome to Boruto API!", bodyAsText())
         }
     }
 }
