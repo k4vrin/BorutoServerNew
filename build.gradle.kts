@@ -45,6 +45,7 @@ dependencies {
     implementation ("io.insert-koin:koin-ktor:$koinVersion")
     api ("io.insert-koin:koin-core:$koinVersion")
     testImplementation ("io.insert-koin:koin-test-junit4:$koinVersion")
+    testImplementation ("io.insert-koin:koin-test:$koinVersion")
 
     // SLF4J Logger
     implementation ("io.insert-koin:koin-logger-slf4j:$koinVersion")

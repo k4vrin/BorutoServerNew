@@ -1,6 +1,8 @@
-#Boruto API
+# Boruto API
+
 an API for Boruto anime heroes using _[Ktor](https://ktor.io/)_ and _[Koin](https://ktor.io/)_
-##1.Plugins
+
+## 1.Plugins
 Many applications require common functionality that is out of scope of the application logic. This could be things like serialization and content encoding, compression, headers, cookie support, etc. All of these are provided in Ktor by means of what we call Plugins.
 
 _[Plugins](https://ktor.io/docs/plugins.html)_ :
@@ -16,7 +18,7 @@ _[Plugins](https://ktor.io/docs/plugins.html)_ :
 - _[Call logging](https://ktor.io/docs/call-logging.html)_ : Ktor provides the capability to log application events using the SLF4J library. The CallLogging plugin allows you to log incoming client requests.
 - _[Status pages](https://ktor.io/docs/status-pages.html)_ : The StatusPages plugin allows Ktor applications to respond appropriately to any failure state based on a thrown exception or status code.
 
-##2.Dependency Injection
+## 2.Dependency Injection
 
 _[What is dependency injection?](https://developer.android.com/training/dependency-injection)_
 
@@ -39,17 +41,17 @@ _[Koin for Ktor](https://github.com/InsertKoinIO/koin-ktor)_
 
 Additional Resources: 
 - _[Installing Koin plugin to Ktor (2.0.0-beta-1) is not working](https://github.com/InsertKoinIO/koin/issues/1295)_
-- _[Koin for Ktor GitHub](https://insert-koin.io/docs/reference/koin-ktor/ktor)_
+- _[Koin for Ktor GitHub](https://github.com/InsertKoinIO/koin-ktor)_
 
-##3.Testing
+## 3.Testing
 
-###Ktor
+### Ktor
 
 _[Ktor Testing Documentation](https://ktor.io/docs/testing.html)_
 
 Ktor provides a special testing engine that doesn't create a web server, doesn't bind to sockets, and doesn't make any real HTTP requests. Instead, it hooks directly into internal mechanisms and processes an application call directly. This results in quicker tests execution compared to running a complete web server for testing.
 
-###Koin
+### Koin
 
 _[Koin Testing Documentation](https://insert-koin.io/docs/reference/koin-test/testing)_
 

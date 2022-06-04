@@ -43,7 +43,7 @@ fun Route.getAllHeroes() {
                     success = false,
                     message = FAIL_MESSAGE_NOT_FOUND
                 ),
-                status = HttpStatusCode.NotFound
+                status = HttpStatusCode.BadRequest
             )
         }
 
