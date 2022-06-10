@@ -54,15 +54,17 @@ class ApplicationTest : AutoCloseKoinTest() {
 				expected = HttpStatusCode.OK,
 				actual = status
 			)
+
+			val actual: ApiResponse = Json.decodeFromString(body())
 			val expected = ApiResponse(
 				success = true,
 				message = SUCCESS_MESSAGE_OK,
 				prevPage = null,
 				nextPage = 2,
-				heroes = heroRepository.page1
+				heroes = heroRepository.page1,
+				lastUpdated = actual.lastUpdated
 			)
 
-			val actual: ApiResponse = Json.decodeFromString(body())
 			assertEquals(
 				expected = expected,
 				actual = actual
@@ -92,15 +94,16 @@ class ApplicationTest : AutoCloseKoinTest() {
 					actual = status
 				)
 
-
+				val actual: ApiResponse = Json.decodeFromString(body())
 				val expected = ApiResponse(
 					success = true,
 					message = SUCCESS_MESSAGE_OK,
 					prevPage = calcPage(page = page)[PREV_PAGE_KEY],
 					nextPage = calcPage(page = page)[NEXT_PAGE_KEY],
-					heroes = heroes[page - 1]
+					heroes = heroes[page - 1],
+					lastUpdated = actual.lastUpdated
 				)
-				val actual: ApiResponse = Json.decodeFromString(body())
+
 				assertEquals(
 					expected = expected,
 					actual = actual
