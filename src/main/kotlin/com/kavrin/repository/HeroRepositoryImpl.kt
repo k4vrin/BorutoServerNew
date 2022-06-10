@@ -14,7 +14,8 @@ class HeroRepositoryImpl: HeroRepository {
             message = SUCCESS_MESSAGE_OK,
             prevPage = calcPage(page = page)[PREV_PAGE_KEY],
             nextPage = calcPage(page = page)[NEXT_PAGE_KEY],
-            heroes = heroes[page]!!
+            heroes = heroes[page]!!,
+            lastUpdated = System.currentTimeMillis()
         )
     }
 
