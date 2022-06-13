@@ -18,8 +18,18 @@ application {
     applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment")
 }
 
-tasks.create("stage") {
-    dependsOn("installDist")
+tasks {
+    create("stage").dependsOn("installDist")
+}
+
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+    kotlinOptions.jvmTarget = "11"
+}
+
+kotlin {
+    jvmToolchain {
+        (this as JavaToolchainSpec).languageVersion.set(JavaLanguageVersion.of(11))
+    }
 }
 
 repositories {
@@ -44,10 +54,9 @@ dependencies {
     testImplementation("io.ktor:ktor-server-test-host:$ktorVersion")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion")
 
-
     // Koin for Ktor
     implementation ("io.insert-koin:koin-ktor:$koinVersion")
-    api ("io.insert-koin:koin-core:$koinVersion")
+    implementation ("io.insert-koin:koin-core:$koinVersion")
     testImplementation ("io.insert-koin:koin-test-junit4:$koinVersion")
     testImplementation ("io.insert-koin:koin-test:$koinVersion")
 

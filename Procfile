@@ -1,1 +1,1 @@
-web: build/install/com.kavrin.boruto_server/bin/com.kavrin.boruto_server
+web: ./build/install/com.kavrin.boruto_server/bin/com.kavrin.boruto_server
