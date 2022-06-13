@@ -12,7 +12,7 @@ fun Application.configureHTTP() {
         // We want to cache the data for 1 year
         header(
             name = HttpHeaders.CacheControl,
-            value = "public, max-age$oneYearInSeconds, immutable"
+            value = "public, max-age=$oneYearInSeconds, immutable"
         )
     }
 }
